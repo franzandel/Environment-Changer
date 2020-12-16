@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -48,6 +49,17 @@ android {
             initWith buildTypes.release
             debuggable false
             resValue "string", "app_name", "Environment Changer"
+        }
+        all {
+
+            buildConfigField "String", "DEV_URL_BASE_ONE", "\"https://dev-base-one.com/user/address/\""
+            buildConfigField "String", "DEV_URL_BASE_TWO", "\"https://dev-base-two.com/\""
+
+            buildConfigField "String", "STG_URL_BASE_ONE", "\"https://staging-base-one.com/user/address/\""
+            buildConfigField "String", "STG_URL_BASE_TWO", "\"https://staging-base-two.com/\""
+
+            buildConfigField "String", "URL_BASE_ONE", "\"https://base-one.com/user/address/\""
+            buildConfigField "String", "URL_BASE_TWO", "\"https://base-two.com/\""
         }
     }
     variantFilter { variant ->

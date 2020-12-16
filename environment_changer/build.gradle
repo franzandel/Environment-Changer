@@ -23,44 +23,6 @@ android {
         dev {}
         staging {}
         live {}
-        all {
-            buildConfigField "String", "CLIENT_SECRET", "\"\""
-            buildConfigField "String", "CLIENT_ID", "\"tnk-fma-mobile\""
-            buildConfigField "String", "URL_SENYUMKU_DIGITAL_BANKING", "\"https://senyumku.page.link/open-app\""
-
-            buildConfigField "String", "DEV_URL_BASE_KEYCLOAK", "\"https://dev-auth.tunaiku.com/auth/realms/Development-Senyumku/\""
-            buildConfigField "String", "DEV_URL_BASE_INTERNAL", "\"https://dev-api-fma.senyumku.com/\""
-            buildConfigField "String", "DEV_URL_KEYCLOAK_AUTH", "\"https://dev-auth.tunaiku.com/auth/realms/Development-Senyumku/protocol/openid-connect/auth\""
-            buildConfigField "String", "DEV_URL_KEYCLOAK_AUTH_GOOGLE", "\"https://dev-auth.tunaiku.com/auth/realms/Development-Senyumku/protocol/openid-connect/auth?kc_idp_hint=google\""
-            buildConfigField "String", "DEV_URL_KEYCLOAK_REGISTER", "\"https://dev-auth.tunaiku.com/auth/realms/Development-Senyumku/protocol/openid-connect/registrations\""
-            buildConfigField "String", "DEV_URL_KEYCLOAK_TOKEN", "\"https://dev-auth.tunaiku.com/auth/realms/Development-Senyumku/protocol/openid-connect/token\""
-            buildConfigField "String", "DEV_URL_ASSET_INTERNAL", "\"https://dev-lite.senyumku.com\""
-            buildConfigField "String", "DEV_URL_COUCH_BASE", "\"https://dev-couchdb.tunaiku.com/\""
-            buildConfigField "String", "DEV_URL_SENYUMKU_DEPOSITO", "\"https://dev-deposito.senyumku.com/login?utm_source=senyumku_lite&utm_medium=apps&utm_campaign=new_product\""
-            buildConfigField "String", "DEV_URL_BANK_FETCHING", "\"https://dev-lite-fetch.senyumku.com/bank-fetching/redirect\""
-
-            buildConfigField "String", "STG_URL_BASE_KEYCLOAK", "\"https://dev-auth.tunaiku.com/auth/realms/Staging-Senyumku/\""
-            buildConfigField "String", "STG_URL_BASE_INTERNAL", "\"https://staging-api-fma.senyumku.com/\""
-            buildConfigField "String", "STG_URL_KEYCLOAK_AUTH", "\"https://dev-auth.tunaiku.com/auth/realms/Staging-Senyumku/protocol/openid-connect/auth\""
-            buildConfigField "String", "STG_URL_KEYCLOAK_AUTH_GOOGLE", "\"https://dev-auth.tunaiku.com/auth/realms/Staging-Senyumku/protocol/openid-connect/auth?kc_idp_hint=google\""
-            buildConfigField "String", "STG_URL_KEYCLOAK_REGISTER", "\"https://dev-auth.tunaiku.com/auth/realms/Staging-Senyumku/protocol/openid-connect/registrations\""
-            buildConfigField "String", "STG_URL_KEYCLOAK_TOKEN", "\"https://dev-auth.tunaiku.com/auth/realms/Staging-Senyumku/protocol/openid-connect/token\""
-            buildConfigField "String", "STG_URL_ASSET_INTERNAL", "\"https://staging-lite.senyumku.com\""
-            buildConfigField "String", "STG_URL_COUCH_BASE", "\"https://staging-couchdb.tunaiku.com/\""
-            buildConfigField "String", "STG_URL_SENYUMKU_DEPOSITO", "\"https://staging-deposito.senyumku.com/login?utm_source=senyumku_lite&utm_medium=apps&utm_campaign=new_product\""
-            buildConfigField "String", "STG_URL_BANK_FETCHING", "\"https://staging-lite-fetch.senyumku.com/bank-fetching/redirect\""
-
-            buildConfigField "String", "URL_BASE_KEYCLOAK", "\"https://auth.tunaiku.com/auth/realms/Senyumku/\""
-            buildConfigField "String", "URL_BASE_INTERNAL", "\"https://api-fma.senyumku.com/\""
-            buildConfigField "String", "URL_KEYCLOAK_AUTH", "\"https://auth.tunaiku.com/auth/realms/Senyumku/protocol/openid-connect/auth\""
-            buildConfigField "String", "URL_KEYCLOAK_AUTH_GOOGLE", "\"https://auth.tunaiku.com/auth/realms/Senyumku/protocol/openid-connect/auth?kc_idp_hint=google\""
-            buildConfigField "String", "URL_KEYCLOAK_REGISTER", "\"https://auth.tunaiku.com/auth/realms/Senyumku/protocol/openid-connect/registrations\""
-            buildConfigField "String", "URL_KEYCLOAK_TOKEN", "\"https://auth.tunaiku.com/auth/realms/Senyumku/protocol/openid-connect/token\""
-            buildConfigField "String", "URL_ASSET_INTERNAL", "\"https://lite.senyumku.com\""
-            buildConfigField "String", "URL_COUCH_BASE", "\"https://couchdb.tunaiku.com/\""
-            buildConfigField "String", "URL_SENYUMKU_DEPOSITO", "\"https://deposito.senyumku.com/login?utm_source=senyumku_lite&utm_medium=apps&utm_campaign=new_product\""
-            buildConfigField "String", "URL_BANK_FETCHING", "\"https://lite-fetch.senyumku.com/bank-fetching/redirect\""
-        }
     }
 }
 

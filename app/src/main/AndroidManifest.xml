@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvironmentChanger">
         <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

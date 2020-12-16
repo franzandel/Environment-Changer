@@ -7,7 +7,8 @@ import com.senyumkulite.catatankeuanganharian.environmentchanger.data.session.En
  * Android Engineer
  */
 
-interface EnvironmentChanger {
-    fun developmentSelected(endpointSession: EndpointSession)
-    fun stagingSelected(endpointSession: EndpointSession)
+interface EnvironmentChangerSetup {
+    fun getNextFullClassName(): String
+    fun setupDevelopmentEnvironment(endpointSession: EndpointSession)
+    fun setupStagingEnvironment(endpointSession: EndpointSession)
 }

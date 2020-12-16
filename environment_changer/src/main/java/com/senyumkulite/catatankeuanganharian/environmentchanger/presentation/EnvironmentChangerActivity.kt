@@ -6,27 +6,18 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.jakewharton.processphoenix.ProcessPhoenix
 import com.senyumkulite.catatankeuanganharian.environmentchanger.R
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EnvironmentChanger
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.NetworkChangeManager
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.NetworkChangeManagerImpl
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.constants.EnvironmentChangerConstants
+import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EnvironmentChangerSetup
 import com.senyumkulite.catatankeuanganharian.environmentchanger.data.session.EndpointSession
 import kotlinx.android.synthetic.main.activity_environment_changer.*
 
 class EnvironmentChangerActivity : AppCompatActivity() {
 
     companion object {
-        private const val WALKTHROUGH_ACTIVITY =
-            "com.franzandel.environmentchanger.LoginActivity"
-        lateinit var environmentChanger: EnvironmentChanger
+        lateinit var environmentChangerSetup: EnvironmentChangerSetup
     }
 
     private val endpointSession by lazy {
-        EndpointSession(applicationContext)
-    }
-
-    private val networkChangeManager: NetworkChangeManager by lazy {
-        NetworkChangeManagerImpl(endpointSession)
+        EndpointSession.instance(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +29,12 @@ class EnvironmentChangerActivity : AppCompatActivity() {
 
     private fun setupUIClickListener() {
         rbDevelopment.setOnClickListener {
-//            networkChangeManager.onEnvironmentChanged(EnvironmentChangerConstants.DEVELOPMENT)
-            environmentChanger.developmentSelected(endpointSession)
+            environmentChangerSetup.setupDevelopmentEnvironment(endpointSession)
             restartAppAndGoToWalkthrough()
         }
 
         rbStaging.setOnClickListener {
-//            networkChangeManager.onEnvironmentChanged(EnvironmentChangerConstants.STAGING)
-            environmentChanger.stagingSelected(endpointSession)
+            environmentChangerSetup.setupStagingEnvironment(endpointSession)
             restartAppAndGoToWalkthrough()
         }
     }
@@ -56,7 +45,7 @@ class EnvironmentChangerActivity : AppCompatActivity() {
             kotlin.run {
                 val intent = Intent(
                     this,
-                    Class.forName(WALKTHROUGH_ACTIVITY)
+                    Class.forName(environmentChangerSetup.getNextFullClassName())
                 )
                 ProcessPhoenix.triggerRebirth(this, intent)
             }
