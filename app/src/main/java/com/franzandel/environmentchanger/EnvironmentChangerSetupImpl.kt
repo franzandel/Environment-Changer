@@ -11,11 +11,15 @@ import com.senyumkulite.catatankeuanganharian.environmentchanger.presentation.En
 
 class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
 
+    companion object {
+        private const val loginActivityClass = "com.franzandel.environmentchanger.LoginActivity"
+    }
+
     init {
         EnvironmentChangerActivity.environmentChangerSetup = this
     }
 
-    override fun getNextFullClassName(): String = "com.franzandel.environmentchanger.LoginActivity"
+    override fun getNextFullClassName(): String = loginActivityClass
 
     override fun setupDevelopmentEnvironment(endpointSession: EndpointSession) {
         endpointSession.apply {
