@@ -1,0 +1,3 @@
+include ':environment_changer'
+include ':app'
+rootProject.name = "Environment Changer"
