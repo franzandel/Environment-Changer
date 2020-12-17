@@ -16,17 +16,16 @@ class EndpointSession(context: Context) {
         private var endpointSession: EndpointSession? = null
         private val LOCK = Any()
 
-        fun instance(context: Context): EndpointSession {
-            return endpointSession ?: synchronized(LOCK) {
+        fun getInstance(context: Context): EndpointSession =
+            endpointSession ?: synchronized(LOCK) {
                 endpointSession ?: createEndpointSession(context).also { endpointSession = it }
             }
-        }
 
         private fun createEndpointSession(context: Context) = EndpointSession(context)
     }
 
     private val sharedPreferences: SharedPreferences =
-        context.getSharedPreferences(SESSION_NAME, 0)
+        context.getSharedPreferences(SESSION_NAME, Context.MODE_PRIVATE)
 
     fun getString(key: String, defaultValue: String): String? =
         sharedPreferences.getString(key, defaultValue)
