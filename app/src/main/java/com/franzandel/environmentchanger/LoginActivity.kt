@@ -8,7 +8,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
 
     private val endpointSession by lazy {
-        EndpointSession.instance(applicationContext)
+        EndpointSession.getInstance(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

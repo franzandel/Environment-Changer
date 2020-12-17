@@ -17,7 +17,7 @@ class EnvironmentChangerActivity : AppCompatActivity() {
     }
 
     private val endpointSession by lazy {
-        EndpointSession.instance(applicationContext)
+        EndpointSession.getInstance(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
