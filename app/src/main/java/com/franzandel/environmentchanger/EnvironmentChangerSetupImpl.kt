@@ -15,7 +15,7 @@ class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
         private const val loginActivityClass = "com.franzandel.environmentchanger.LoginActivity"
     }
 
-    init {
+    override fun init() {
         EnvironmentChangerActivity.environmentChangerSetup = this
     }
 

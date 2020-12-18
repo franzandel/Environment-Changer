@@ -8,6 +8,7 @@ import com.senyumkulite.catatankeuanganharian.environmentchanger.data.session.En
  */
 
 interface EnvironmentChangerSetup {
+    fun init()
     fun getNextFullClassName(): String
     fun setupDevelopmentEnvironment(endpointSession: EndpointSession)
     fun setupStagingEnvironment(endpointSession: EndpointSession)
