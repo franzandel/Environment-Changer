@@ -1,4 +1,4 @@
-package com.senyumkulite.catatankeuanganharian.environmentchanger.data.session
+package com.senyumkulite.catatankeuanganharian.environmentchanger.data
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -17,11 +17,19 @@ class EndpointSession(context: Context) {
         private val LOCK = Any()
 
         fun getInstance(context: Context): EndpointSession =
-            endpointSession ?: synchronized(LOCK) {
-                endpointSession ?: createEndpointSession(context).also { endpointSession = it }
-            }
+            endpointSession
+                ?: synchronized(LOCK) {
+                    endpointSession
+                        ?: createEndpointSession(
+                            context
+                        )
+                            .also { endpointSession = it }
+                }
 
-        private fun createEndpointSession(context: Context) = EndpointSession(context)
+        private fun createEndpointSession(context: Context) =
+            EndpointSession(
+                context
+            )
     }
 
     private val sharedPreferences: SharedPreferences =

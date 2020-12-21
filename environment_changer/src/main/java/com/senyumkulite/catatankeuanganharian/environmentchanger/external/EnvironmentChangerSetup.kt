@@ -1,6 +1,6 @@
-package com.senyumkulite.catatankeuanganharian.environmentchanger.data
+package com.senyumkulite.catatankeuanganharian.environmentchanger.external
 
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.session.EndpointSession
+import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
 
 /**
  * Created by Franz Andel on 16/12/20.
