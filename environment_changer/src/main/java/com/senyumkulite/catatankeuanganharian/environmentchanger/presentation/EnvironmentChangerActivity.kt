@@ -6,8 +6,8 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.jakewharton.processphoenix.ProcessPhoenix
 import com.senyumkulite.catatankeuanganharian.environmentchanger.R
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EnvironmentChangerSetup
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.session.EndpointSession
+import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
+import com.senyumkulite.catatankeuanganharian.environmentchanger.external.EnvironmentChangerSetup
 import kotlinx.android.synthetic.main.activity_environment_changer.*
 
 class EnvironmentChangerActivity : AppCompatActivity() {
