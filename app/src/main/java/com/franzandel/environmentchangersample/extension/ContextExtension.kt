@@ -1,4 +1,4 @@
-package com.franzandel.environmentchanger.extension
+package com.franzandel.environmentchangersample.extension
 
 import android.content.Context
 import android.content.Intent

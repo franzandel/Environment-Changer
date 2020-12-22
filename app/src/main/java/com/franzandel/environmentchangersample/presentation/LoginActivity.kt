@@ -1,11 +1,11 @@
-package com.franzandel.environmentchanger.presentation
+package com.franzandel.environmentchangersample.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.franzandel.environmentchanger.BuildConfig
-import com.franzandel.environmentchanger.R
-import com.franzandel.environmentchanger.constants.EndpointConstants
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
+import com.franzandel.environmentchanger.data.EndpointSession
+import com.franzandel.environmentchangersample.BuildConfig
+import com.franzandel.environmentchangersample.R
+import com.franzandel.environmentchangersample.constants.EndpointConstants
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {

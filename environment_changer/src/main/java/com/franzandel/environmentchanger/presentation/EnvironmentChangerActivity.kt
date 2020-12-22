@@ -1,13 +1,13 @@
-package com.senyumkulite.catatankeuanganharian.environmentchanger.presentation
+package com.franzandel.environmentchanger.presentation
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import com.franzandel.environmentchanger.R
+import com.franzandel.environmentchanger.data.EndpointSession
+import com.franzandel.environmentchanger.external.EnvironmentChangerSetup
 import com.jakewharton.processphoenix.ProcessPhoenix
-import com.senyumkulite.catatankeuanganharian.environmentchanger.R
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
-import com.senyumkulite.catatankeuanganharian.environmentchanger.external.EnvironmentChangerSetup
 import kotlinx.android.synthetic.main.activity_environment_changer.*
 
 class EnvironmentChangerActivity : AppCompatActivity() {

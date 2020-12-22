@@ -1,11 +1,11 @@
-package com.franzandel.environmentchanger.presentation
+package com.franzandel.environmentchangersample.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.franzandel.environmentchanger.R
-import com.franzandel.environmentchanger.constants.Screen
-import com.franzandel.environmentchanger.extension.goTo
-import com.franzandel.environmentchanger.external.EnvironmentChangerSetupImpl
+import com.franzandel.environmentchangersample.R
+import com.franzandel.environmentchangersample.constants.Screen
+import com.franzandel.environmentchangersample.extension.goTo
+import com.franzandel.environmentchangersample.external.EnvironmentChangerSetupImpl
 
 class SplashScreenActivity : AppCompatActivity() {
 
