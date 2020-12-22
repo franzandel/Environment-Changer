@@ -11,22 +11,30 @@ import com.franzandel.environmentchangersample.constants.EndpointConstants
  * Android Engineer
  */
 
-class EnvironmentChangerSetupImpl :
-    EnvironmentChangerSetup {
+class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
 
     companion object {
         private const val loginActivityClass =
             "com.franzandel.environmentchangersample.presentation.LoginActivity"
     }
 
+    /**
+     * Connect your class to EnvironmentChanger
+     */
     override fun init() {
         EnvironmentChangerActivity.environmentChangerSetup = this
     }
 
-    override fun getNextFullClassName(): String =
-        loginActivityClass
+    /**
+     * Specify your next Activity class path after restarting app
+     */
+    override fun getNextFullClassName(): String = loginActivityClass
 
+    /**
+     * Setup your Development Endpoint
+     */
     override fun setupDevelopmentEnvironment(endpointSession: EndpointSession) {
+        // Change this based on your requirements
         endpointSession.apply {
             setString(
                 EndpointConstants.PREF_URL_BASE_ONE,
@@ -39,7 +47,11 @@ class EnvironmentChangerSetupImpl :
         }
     }
 
+    /**
+     * Setup your Staging Endpoint
+     */
     override fun setupStagingEnvironment(endpointSession: EndpointSession) {
+        // Change this based on your requirements
         endpointSession.apply {
             setString(
                 EndpointConstants.PREF_URL_BASE_ONE,
