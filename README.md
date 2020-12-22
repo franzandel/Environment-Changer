@@ -6,11 +6,13 @@ This solve problem where QA need to do regression in Staging environment and you
 # Usage
 1. Add dependency in your build.gradle file
 
-```implementation 'com.franzandel:environment-changer:1.0.0'```
+```groovy
+implementation 'com.franzandel:environment-changer:1.0.0'
+```
 
 2. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
 
-```
+```kotlin
 class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
 
     companion object {
@@ -67,7 +69,7 @@ class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
 ```
 
 3. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
-```
+```kotlin
      EnvironmentChangerSetupImpl().init()  // Call this before navigating to Environment Changer
      Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
          startActivity(this)
