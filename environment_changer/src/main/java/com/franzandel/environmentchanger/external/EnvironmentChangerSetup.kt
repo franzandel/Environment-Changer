@@ -1,6 +1,6 @@
-package com.senyumkulite.catatankeuanganharian.environmentchanger.external
+package com.franzandel.environmentchanger.external
 
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
+import com.franzandel.environmentchanger.data.EndpointSession
 
 /**
  * Created by Franz Andel on 16/12/20.

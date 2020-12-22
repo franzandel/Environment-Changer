@@ -1,10 +1,10 @@
-package com.franzandel.environmentchanger.external
+package com.franzandel.environmentchangersample.external
 
-import com.franzandel.environmentchanger.BuildConfig
-import com.franzandel.environmentchanger.constants.EndpointConstants
-import com.senyumkulite.catatankeuanganharian.environmentchanger.data.EndpointSession
-import com.senyumkulite.catatankeuanganharian.environmentchanger.external.EnvironmentChangerSetup
-import com.senyumkulite.catatankeuanganharian.environmentchanger.presentation.EnvironmentChangerActivity
+import com.franzandel.environmentchanger.data.EndpointSession
+import com.franzandel.environmentchanger.external.EnvironmentChangerSetup
+import com.franzandel.environmentchanger.presentation.EnvironmentChangerActivity
+import com.franzandel.environmentchangersample.BuildConfig
+import com.franzandel.environmentchangersample.constants.EndpointConstants
 
 /**
  * Created by Franz Andel on 16/12/20.
@@ -16,7 +16,7 @@ class EnvironmentChangerSetupImpl :
 
     companion object {
         private const val loginActivityClass =
-            "com.franzandel.environmentchanger.presentation.LoginActivity"
+            "com.franzandel.environmentchangersample.presentation.LoginActivity"
     }
 
     override fun init() {

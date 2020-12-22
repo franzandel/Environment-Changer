@@ -1,4 +1,4 @@
-package com.franzandel.environmentchanger.constants
+package com.franzandel.environmentchangersample.constants
 
 /**
  * Created by Franz Andel on 16/12/20.

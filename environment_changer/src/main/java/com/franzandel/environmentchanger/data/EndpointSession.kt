@@ -1,4 +1,4 @@
-package com.senyumkulite.catatankeuanganharian.environmentchanger.data
+package com.franzandel.environmentchanger.data
 
 import android.content.Context
 import android.content.SharedPreferences
