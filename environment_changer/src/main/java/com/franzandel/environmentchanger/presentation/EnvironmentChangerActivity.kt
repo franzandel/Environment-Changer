@@ -14,6 +14,8 @@ class EnvironmentChangerActivity : AppCompatActivity() {
 
     companion object {
         lateinit var environmentChangerSetup: EnvironmentChangerSetup
+        val CLASS_PATH =
+            Class.forName("com.franzandel.environmentchanger.presentation.EnvironmentChangerActivity")
     }
 
     private val endpointSession by lazy {
