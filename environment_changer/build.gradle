@@ -39,7 +39,7 @@ android {
                     // You can then customize attributes of the publication as shown below.
                     groupId = 'com.github.franzandel'
                     artifactId = 'environment-changer'
-                    version = '1.0'
+                    version = '1.0.0'
                 }
             }
         }
