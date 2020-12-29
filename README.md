@@ -1,16 +1,30 @@
 # Environment-Changer
+[![](https://jitpack.io/v/franzandel/Environment-Changer.svg)](https://jitpack.io/#franzandel/Environment-Changer)
+
 Environment-Changer facilitates changing your environment without rebuilding APK. Specifically when you have **Development** & **Staging** environment.
 
 This solve problem where QA need to do regression in Staging environment and you as a developer need to rebuild Staging APK.
 
 # Usage
-1. Add dependency in your `build.gradle` file
+
+1. Add jitpack dependency in your project's `build.gradle` file
 
 ```groovy
-implementation 'com.franzandel:environment-changer:1.0.0'
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
 ```
 
-2. Make sure you have `dev` and `staging` build type in your `build.gradle` file
+2. Add dependency in your module's `build.gradle` file
+
+```groovy
+implementation 'com.github.franzandel:Environment-Changer:1.0.0'
+```
+
+3. Make sure you have `dev` and `staging` build type in your module's `build.gradle` file
 
 ```groovy
 buildTypes {
@@ -19,7 +33,7 @@ buildTypes {
 }
 ```
 
-3. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
+4. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
 
 ```kotlin
 class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
@@ -75,7 +89,7 @@ class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 }
 ```
 
-4. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
+5. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
 ```kotlin
      EnvironmentChangerSetup().init()  // Call this before navigating to Environment Changer
      Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
