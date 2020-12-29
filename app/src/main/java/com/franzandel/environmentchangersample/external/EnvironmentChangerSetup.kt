@@ -1,8 +1,7 @@
 package com.franzandel.environmentchangersample.external
 
 import com.franzandel.environmentchanger.data.EndpointSession
-import com.franzandel.environmentchanger.external.EnvironmentChangerSetup
-import com.franzandel.environmentchanger.presentation.EnvironmentChangerActivity
+import com.franzandel.environmentchanger.external.BaseEnvironmentChangerSetup
 import com.franzandel.environmentchangersample.BuildConfig
 import com.franzandel.environmentchangersample.constants.EndpointConstants
 
@@ -11,7 +10,7 @@ import com.franzandel.environmentchangersample.constants.EndpointConstants
  * Android Engineer
  */
 
-class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
+class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 
     companion object {
         private const val loginActivityClass =
@@ -19,11 +18,9 @@ class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
     }
 
     /**
-     * Connect your class to EnvironmentChanger
+     * Provide current class instance to EnvironmentChanger
      */
-    override fun init() {
-        EnvironmentChangerActivity.environmentChangerSetup = this
-    }
+    override fun getEnvironmentChangerSetup(): BaseEnvironmentChangerSetup = this
 
     /**
      * Specify your next Activity class path after restarting app

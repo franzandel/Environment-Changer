@@ -20,16 +20,11 @@ class EndpointSession(context: Context) {
             endpointSession
                 ?: synchronized(LOCK) {
                     endpointSession
-                        ?: createEndpointSession(
-                            context
-                        )
-                            .also { endpointSession = it }
+                        ?: createEndpointSession(context).also { endpointSession = it }
                 }
 
         private fun createEndpointSession(context: Context) =
-            EndpointSession(
-                context
-            )
+            EndpointSession(context)
     }
 
     private val sharedPreferences: SharedPreferences =
