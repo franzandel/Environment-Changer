@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.franzandel.environmentchanger.presentation.EnvironmentChangerActivity
 import com.franzandel.environmentchangersample.R
-import com.franzandel.environmentchangersample.external.EnvironmentChangerSetupImpl
+import com.franzandel.environmentchangersample.external.EnvironmentChangerSetup
 
 class SplashScreenActivity : AppCompatActivity() {
 
@@ -13,7 +13,7 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        EnvironmentChangerSetupImpl().init() // Call this before navigating to Environment Changer
+        EnvironmentChangerSetup().init() // Call this before navigating to Environment Changer
         Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
             startActivity(this)
         }

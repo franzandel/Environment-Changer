@@ -6,14 +6,14 @@ import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.franzandel.environmentchanger.R
 import com.franzandel.environmentchanger.data.EndpointSession
-import com.franzandel.environmentchanger.external.EnvironmentChangerSetup
+import com.franzandel.environmentchanger.external.BaseEnvironmentChangerSetup
 import com.jakewharton.processphoenix.ProcessPhoenix
 import kotlinx.android.synthetic.main.activity_environment_changer.*
 
 class EnvironmentChangerActivity : AppCompatActivity() {
 
     companion object {
-        lateinit var environmentChangerSetup: EnvironmentChangerSetup
+        lateinit var environmentChangerSetup: BaseEnvironmentChangerSetup
         val CLASS_PATH =
             Class.forName("com.franzandel.environmentchanger.presentation.EnvironmentChangerActivity")
     }
