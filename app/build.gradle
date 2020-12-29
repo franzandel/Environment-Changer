@@ -40,7 +40,6 @@ android {
         }
         staging {
             initWith buildTypes.debug
-            initWith buildTypes.release
             applicationIdSuffix ".staging"
         }
         live {
