@@ -4,16 +4,25 @@ Environment-Changer facilitates changing your environment without rebuilding APK
 This solve problem where QA need to do regression in Staging environment and you as a developer need to rebuild Staging APK.
 
 # Usage
-1. Add dependency in your build.gradle file
+1. Add dependency in your `build.gradle` file
 
 ```groovy
 implementation 'com.franzandel:environment-changer:1.0.0'
 ```
 
-2. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
+2. Make sure you have `dev` and `staging` build type in your `build.gradle` file
+
+```groovy
+buildTypes {
+    dev {}
+    staging {}
+}
+```
+
+3. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
 
 ```kotlin
-class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
+class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 
     companion object {
         private const val loginActivityClass =
@@ -21,11 +30,9 @@ class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
     }
 
     /**
-     * Connect your class to EnvironmentChanger
+     * Provide current class instance to EnvironmentChanger
      */
-    override fun init() {
-        EnvironmentChangerActivity.environmentChangerSetup = this
-    }
+    override fun getEnvironmentChangerSetup(): BaseEnvironmentChangerSetup = this
 
     /**
      * Specify your next Activity class path after restarting app
@@ -68,9 +75,9 @@ class EnvironmentChangerSetupImpl : EnvironmentChangerSetup {
 }
 ```
 
-3. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
+4. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
 ```kotlin
-     EnvironmentChangerSetupImpl().init()  // Call this before navigating to Environment Changer
+     EnvironmentChangerSetup().init()  // Call this before navigating to Environment Changer
      Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
          startActivity(this)
      }
