@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.franzandel.environmentchanger.data.EndpointSession
 import com.franzandel.environmentchangersample.BuildConfig
 import com.franzandel.environmentchangersample.R
-import com.franzandel.environmentchangersample.constants.EndpointConstants
+import com.franzandel.environmentchangersample.external.EnvironmentChangerSetup
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -18,8 +18,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        loginDescription.text = endpointSession.getString(
-            EndpointConstants.PREF_URL_BASE_ONE,
+        tvLoginDescription.text = endpointSession.getString(
+            EnvironmentChangerSetup.PREF_URL_BASE_ONE,
             BuildConfig.URL_BASE_ONE
         )
     }

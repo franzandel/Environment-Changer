@@ -49,7 +49,6 @@ android {
             resValue "string", "app_name", "Environment Changer"
         }
         all {
-
             buildConfigField "String", "DEV_URL_BASE_ONE", "\"https://dev-base-one.com/user/address/\""
             buildConfigField "String", "DEV_URL_BASE_TWO", "\"https://dev-base-two.com/\""
 
