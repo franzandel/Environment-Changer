@@ -12,6 +12,7 @@ import androidx.core.content.edit
 class EndpointSession(context: Context) {
 
     companion object {
+        private const val PREF_IS_ENVIRONMENT_CHANGER_SHOWN = "pref_is_environment_changer_shown"
         private const val SESSION_NAME = "endpoint_session"
         private var endpointSession: EndpointSession? = null
         private val LOCK = Any()
@@ -38,4 +39,20 @@ class EndpointSession(context: Context) {
             putString(key, value)
         }
     }
+
+    private fun getBoolean(key: String, defaultValue: Boolean): Boolean =
+        sharedPreferences.getBoolean(key, defaultValue)
+
+    private fun setBoolean(key: String, value: Boolean) {
+        sharedPreferences.edit {
+            putBoolean(key, value)
+        }
+    }
+
+    fun setIsEnvironmentChangerShown(status: Boolean) {
+        setBoolean(PREF_IS_ENVIRONMENT_CHANGER_SHOWN, status)
+    }
+
+    fun getIsEnvironmentChangerShown(): Boolean =
+        getBoolean(PREF_IS_ENVIRONMENT_CHANGER_SHOWN, false)
 }
