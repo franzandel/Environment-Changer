@@ -80,24 +80,43 @@ class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 }
 ```
 
-5. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
+5. Below is how to handle navigation to `EnvironmentChangerActivity` in your `SplashScreenActivity` or other First Launch Activity
 ```kotlin
 class SplashScreenActivity : AppCompatActivity() {
+
+    private val endpointSession by lazy {
+        EndpointSession.getInstance(applicationContext)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        EnvironmentChangerSetup().init() // Call this before navigating to Environment Changer
+        // Navigate to Environment Changer if Not Production Environment & Never selected Environment before
+        if (BuildConfig.DEBUG && !endpointSession.getIsEnvironmentChangerShown()) {
+            EnvironmentChangerSetup().init() // Call this before navigating to Environment Changer
+            goToEnvironmentChanger()
+        } else {
+            goToLogin()
+        }
+        finish()
+    }
+
+    private fun goToEnvironmentChanger() {
         Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
             startActivity(this)
         }
-        finish()
+    }
+
+    private fun goToLogin() {
+        Intent(this, LoginActivity::class.java).run {
+            startActivity(this)
+        }
     }
 }
 ```
 
-6. Below is an example of how to use the `EndpointSession`
+6. Below is an example of how to use `EndpointSession`
 ```kotlin
 class LoginActivity : AppCompatActivity() {
 
