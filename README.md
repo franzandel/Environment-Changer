@@ -30,17 +30,20 @@ implementation 'com.github.franzandel:Environment-Changer:1.0.0'
 buildTypes {
     dev {}
     staging {}
+    ...
 }
 ```
 
-4. Create implementation class of `EnvironmentChangerSetup` for Initial Setup
+4. Create class that extend from `BaseEnvironmentChangerSetup` for Initial Setup and modify based on your requirements
 
 ```kotlin
 class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 
     companion object {
-        private const val loginActivityClass =
+        private const val LOGIN_ACTIVITY_CLASS_PATH =
             "com.franzandel.environmentchangersample.presentation.LoginActivity"
+        const val PREF_URL_BASE_ONE = "pref_url_base_one"
+        const val PREF_URL_BASE_TWO = "pref_url_base_two"
     }
 
     /**
@@ -51,39 +54,27 @@ class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
     /**
      * Specify your next Activity class path after restarting app
      */
-    override fun getNextFullClassName(): String = loginActivityClass
+    override fun getNextFullClassName(): String = LOGIN_ACTIVITY_CLASS_PATH
 
     /**
-     * Setup your Development Endpoint
+     * Setup your Development Endpoint in EndpointSession
      */
     override fun setupDevelopmentEnvironment(endpointSession: EndpointSession) {
         // Change this based on your requirements
         endpointSession.apply {
-            setString(
-                EndpointConstants.PREF_URL_BASE_ONE,
-                BuildConfig.DEV_URL_BASE_ONE
-            )
-            setString(
-                EndpointConstants.PREF_URL_BASE_TWO,
-                BuildConfig.DEV_URL_BASE_TWO
-            )
+            setString(PREF_URL_BASE_ONE, BuildConfig.DEV_URL_BASE_ONE)
+            setString(PREF_URL_BASE_TWO, BuildConfig.DEV_URL_BASE_TWO)
         }
     }
 
     /**
-     * Setup your Staging Endpoint
+     * Setup your Staging Endpoint in EndpointSession
      */
     override fun setupStagingEnvironment(endpointSession: EndpointSession) {
         // Change this based on your requirements
         endpointSession.apply {
-            setString(
-                EndpointConstants.PREF_URL_BASE_ONE,
-                BuildConfig.STG_URL_BASE_ONE
-            )
-            setString(
-                EndpointConstants.PREF_URL_BASE_TWO,
-                BuildConfig.STG_URL_BASE_TWO
-            )
+            setString(PREF_URL_BASE_ONE, BuildConfig.STG_URL_BASE_ONE)
+            setString(PREF_URL_BASE_TWO, BuildConfig.STG_URL_BASE_TWO)
         }
     }
 }
@@ -91,11 +82,39 @@ class EnvironmentChangerSetup : BaseEnvironmentChangerSetup() {
 
 5. Then instantiate the previous implementation class in your `SplashScreenActivity` or other Initial Activity in `onCreate` method
 ```kotlin
-     EnvironmentChangerSetup().init()  // Call this before navigating to Environment Changer
-     Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
-         startActivity(this)
-     }
-     finish()
+class SplashScreenActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_splash_screen)
+
+        EnvironmentChangerSetup().init() // Call this before navigating to Environment Changer
+        Intent(this, EnvironmentChangerActivity.CLASS_PATH).run {
+            startActivity(this)
+        }
+        finish()
+    }
+}
+```
+
+6. Below is an example of how to use the `EndpointSession`
+```kotlin
+class LoginActivity : AppCompatActivity() {
+
+    private val endpointSession by lazy {
+        EndpointSession.getInstance(applicationContext)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
+
+        tvLoginDescription.text = endpointSession.getString(
+            EnvironmentChangerSetup.PREF_URL_BASE_ONE,
+            BuildConfig.URL_BASE_ONE
+        )
+    }
+}
 ```
 
 # License
