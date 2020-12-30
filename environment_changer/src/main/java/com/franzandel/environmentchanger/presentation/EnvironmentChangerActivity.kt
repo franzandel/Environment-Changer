@@ -31,11 +31,13 @@ class EnvironmentChangerActivity : AppCompatActivity() {
 
     private fun setupUIClickListener() {
         rbDevelopment.setOnClickListener {
+            endpointSession.setIsEnvironmentChangerShown(true)
             environmentChangerSetup.setupDevelopmentEnvironment(endpointSession)
             restartAppAndGoToWalkthrough()
         }
 
         rbStaging.setOnClickListener {
+            endpointSession.setIsEnvironmentChangerShown(true)
             environmentChangerSetup.setupStagingEnvironment(endpointSession)
             restartAppAndGoToWalkthrough()
         }
