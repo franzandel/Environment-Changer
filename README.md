@@ -1,6 +1,8 @@
 # Environment-Changer
 [![](https://jitpack.io/v/franzandel/Environment-Changer.svg)](https://jitpack.io/#franzandel/Environment-Changer)
 
+![environment-changer-sneakpeak](https://github.com/franzandel/Environment-Changer/blob/master/environment-changer-sneakpeak.gif)
+
 Environment-Changer facilitates changing your environment without rebuilding APK. Specifically when you have **Development** & **Staging** environment.
 
 This solve problem where QA need to do regression in Staging environment and you as a developer need to rebuild Staging APK.
