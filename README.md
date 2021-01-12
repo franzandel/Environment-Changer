@@ -118,7 +118,7 @@ class SplashScreenActivity : AppCompatActivity() {
 }
 ```
 
-6. Below is an example of how to use `EndpointSession`
+6. Below is an example of how to use `EndpointSession`. **For the default value, you must define the Production Endpoint, because Environment Changer Page won't be shown in Production Environment.**
 ```kotlin
 class LoginActivity : AppCompatActivity() {
 
